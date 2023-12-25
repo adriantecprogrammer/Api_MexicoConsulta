@@ -1,4 +1,4 @@
-package com.cpostalesApi;
+package com.cpostalesApi.Service;
 
 import com.cpostalesApi.entity.Estado;
 import com.cpostalesApi.repository.EstadoRepository;

@@ -1,6 +1,6 @@
 package com.cpostalesApi.controller;
 
-import com.cpostalesApi.EstadoService;
+import com.cpostalesApi.Service.EstadoService;
 import com.cpostalesApi.entity.Estado;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
