@@ -1,0 +1,21 @@
+applicationType: default
+defaultPackage: com.cpostalesApi
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, data, data-jpa, http-client-test, java, java-application, jdbc-hikari, junit, logback, lombok, maven, maven-enforcer-plugin, micronaut-aot, micronaut-http-validation, mysql, netty-server, properties, readme, serialization-jackson, shade, test-resources]
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/codigos_postales
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: adr1an2004
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.cpostalesApi.entity'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
