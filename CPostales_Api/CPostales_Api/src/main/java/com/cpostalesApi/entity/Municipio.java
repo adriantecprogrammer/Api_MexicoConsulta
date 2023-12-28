@@ -1,5 +1,6 @@
 package com.cpostalesApi.entity;
 
+import io.micronaut.core.annotation.Introspected;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,23 +9,28 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.sql.ast.tree.expression.Distinct;
 
+@Entity
+@Introspected
+@Serdeable.Serializable
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name = "municipios")
-@Serdeable.Serializable
+@ToString
 
 public class Municipio {
 
-    @Id
+
     @Column(name = "id_municipios")
     private String id_municipios;
 
     @Column(name = "municipio")
     private String municipio;
 
+    @Id
     @Column(name = "id_estados")
     private int id_estados;
 }
