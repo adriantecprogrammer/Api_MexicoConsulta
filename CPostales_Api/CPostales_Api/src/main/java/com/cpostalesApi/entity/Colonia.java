@@ -2,13 +2,11 @@ package com.cpostalesApi.entity;
 
 
 import io.micronaut.serde.annotation.Serdeable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "colonias")
 @Serdeable.Serializable
+
 
 public class Colonia {
 
@@ -25,6 +24,10 @@ public class Colonia {
     @Id
     @Column(name = "cp")
     private String cp;
+
+    public String toString(){
+        return "Colonia: "+colonia+" Cp: "+cp;
+    }
 
 
 }

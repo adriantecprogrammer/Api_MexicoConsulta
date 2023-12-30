@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +18,8 @@ import lombok.NoArgsConstructor;
 @Serdeable.Serializable
 public class Estado {
 
+    @OneToMany(mappedBy = "estado", fetch = FetchType.EAGER)
+    private Set<Municipio> municipios;
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

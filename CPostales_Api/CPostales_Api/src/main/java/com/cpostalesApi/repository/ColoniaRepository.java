@@ -11,6 +11,10 @@ import java.util.List;
 @Repository
 public interface ColoniaRepository extends JpaRepository<Colonia,String> {
 
-    @Query("SELECT Colonia FROM Colonia  WHERE cp = :cp")
+    @Query("SELECT colonia  FROM Colonia  WHERE cp = :cp")
     List<Colonia> find(String cp);
+
+
+   // List<Colonia> findAllByid(String id);
+
 }

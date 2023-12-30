@@ -7,23 +7,25 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 
+import java.util.Collections;
+import java.util.List;
+
 @Controller("/api/v1")
 public class CodigoPostalController {
 
     CodigoPostalService codigoPostalService;
+    ColoniaController coloniaController;
 
-    public CodigoPostalController (CodigoPostalService codigoPostalService){
+    public CodigoPostalController (CodigoPostalService codigoPostalService, ColoniaController coloniaController){
         this.codigoPostalService=codigoPostalService;
+        this.coloniaController=coloniaController;
     }
 
     @Get("/codigo_postal/{cp}")
-    public CodigoPostal showCodigoPostal (@PathVariable String cp){
-        return codigoPostalService.showCodigoPostal(cp);
+    public List<String> showCodigoPostal (@PathVariable String cp){
+        return coloniaController.show(cp);
 
     }
 
-    @Get("/codigo_postal/saludar")
-    public String saludarC(){
-        return "HOLAAACPPP";
-    }
+
 }

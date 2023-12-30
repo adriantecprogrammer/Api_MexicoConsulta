@@ -11,12 +11,13 @@ import java.util.List;
 @Controller("/api/v1")
 public class ColoniaController {
     ColoniaService coloniaService;
+ List<String>col;
 
-    public ColoniaController(ColoniaService coloniaService){
+    public ColoniaController(ColoniaService coloniaService, List<String>col){
         this.coloniaService=coloniaService;
+        this.col=col;
     }
 
-    /*
     @Get("/colonia/{cp}")
     public Colonia showColonia(@PathVariable String cp){
 
@@ -24,9 +25,17 @@ public class ColoniaController {
     }
 
 
-     */
     @Get("/colonias/{cp}")
-    public List<Colonia> showColoniaByCodigoPostal(@PathVariable String cp){
-         return coloniaService.getColoniasByCodigoPostal(cp);
+    public List<String> show(@PathVariable String cp) {
+
+        return add(cp);
+
+    }
+
+    public List<String> add(String cp){
+        col.clear();
+       col.add(coloniaService.getColoniasByCodigoPostal(cp).toString()) ;
+       return col;
+
     }
 }

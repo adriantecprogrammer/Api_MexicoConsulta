@@ -2,10 +2,7 @@ package com.cpostalesApi.entity;
 
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.serde.annotation.Serdeable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +18,16 @@ import org.hibernate.sql.ast.tree.expression.Distinct;
 @Table(name = "municipios")
 @ToString
 
-public class Municipio {
 
+public class Municipio {
+    /*
+
+    @Id
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_estados")
+    private Estado estado;
+
+     */
 
     @Column(name = "id_municipios")
     private String id_municipios;
@@ -30,7 +35,9 @@ public class Municipio {
     @Column(name = "municipio")
     private String municipio;
 
+
     @Id
     @Column(name = "id_estados")
     private int id_estados;
+
 }
