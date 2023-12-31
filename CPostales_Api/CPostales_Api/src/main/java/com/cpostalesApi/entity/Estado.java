@@ -18,8 +18,11 @@ import java.util.Set;
 @Serdeable.Serializable
 public class Estado {
 
-    @OneToMany(mappedBy = "estado", fetch = FetchType.EAGER)
-    private Set<Municipio> municipios;
+    /*
+    @OneToMany(mappedBy = "estados", fetch = FetchType.EAGER)
+    private List<Municipio> municipios;
+
+     */
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

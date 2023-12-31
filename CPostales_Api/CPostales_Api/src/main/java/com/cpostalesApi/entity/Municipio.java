@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.sql.ast.tree.expression.Distinct;
 
+import java.io.Serializable;
+
 @Entity
 @Introspected
 @Serdeable.Serializable
@@ -19,15 +21,18 @@ import org.hibernate.sql.ast.tree.expression.Distinct;
 @ToString
 
 
-public class Municipio {
-    /*
+public class Municipio implements Serializable {
 
+    /*
+    @ManyToOne
     @Id
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_estados")
-    private Estado estado;
+    private Estado estados;
 
      */
+@Id
+@Column(name = "id_estados")
+private int id_estados;
 
     @Column(name = "id_municipios")
     private String id_municipios;
@@ -36,8 +41,8 @@ public class Municipio {
     private String municipio;
 
 
-    @Id
-    @Column(name = "id_estados")
-    private int id_estados;
+    //@Column(name = "id_estados")
+   // private int id_estados;
+
 
 }

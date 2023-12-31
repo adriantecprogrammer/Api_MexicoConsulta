@@ -7,6 +7,7 @@ import io.micronaut.data.annotation.Query;
 import jakarta.inject.Singleton;
 
 import java.util.List;
+import java.util.Set;
 
 @Singleton
 
@@ -20,9 +21,9 @@ public class MunicipioService {
     }
 
     public List<Municipio> showMunicipios(int id_estados){
-     List<Municipio>municipios = municipioRepository.findMunicipios(id_estados);
+     return municipioRepository.findMunicipios(id_estados);
 
-     return municipios;
+
 
     }
     /*
