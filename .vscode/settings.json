@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "Se agrego la clase controller de estado",
-        "Se agrego el controller de Municipio"
+        "Se agrego el controller de Municipio",
+        "EstadoController"
     ]
 }

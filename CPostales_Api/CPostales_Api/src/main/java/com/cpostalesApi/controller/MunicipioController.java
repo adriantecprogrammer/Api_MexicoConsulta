@@ -19,18 +19,5 @@ public MunicipioController(MunicipioService municipioService){
     this.municipioService=municipioService;
 }
 
-@Get("/municipios/{id_estados}")
-
-public List<Municipio> showMunicipios (int id_estados){
-    return municipioService.showMunicipios(id_estados);
-}
-
-/*
-@Get("/mun/{id_estados}")
-public List<String>show(int id_estados){
-    return municipioService.show(id_estados);
-}
-
- */
 
 }

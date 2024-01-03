@@ -20,17 +20,10 @@ public class MunicipioService {
 
     }
 
-    public List<Municipio> showMunicipios(int id_estados){
-     return municipioRepository.findMunicipios(id_estados);
 
 
 
+    public List<Municipio> listAllById(Integer id) {
+        return municipioRepository.findEstadoById(id);
     }
-    /*
-    public List<String>show(int id_estados){
-        return municipioRepository.findM(id_estados);
-    }
-
-     */
-
 }
