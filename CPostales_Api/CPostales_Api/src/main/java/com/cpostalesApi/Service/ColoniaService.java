@@ -18,9 +18,5 @@ public class ColoniaService {
     public Colonia showColonia(String cp){
         return coloniaRepository.findById(cp).orElse(null);
     }
-    public List <Colonia> getColoniasByCodigoPostal(String cp) {
 
-       return coloniaRepository.find(cp);
-
-    }
 }
