@@ -1,19 +1,23 @@
 package com.cpostalesApi.Service;
 
 import com.cpostalesApi.entity.CodigoPostal;
+import com.cpostalesApi.entity.Colonia;
 import com.cpostalesApi.repository.CodigoPostalRepository;
+import com.cpostalesApi.repository.ColoniaRepository;
 import jakarta.inject.Singleton;
+
+import java.util.Set;
 
 @Singleton
 public class CodigoPostalService {
 
-    CodigoPostalRepository codigoPostalRepository;
+    ColoniaRepository coloniaRepository;
 
-    public CodigoPostalService(CodigoPostalRepository codigoPostalRepository){
-        this.codigoPostalRepository=codigoPostalRepository;
+    public CodigoPostalService(ColoniaRepository coloniaRepository){
+        this.coloniaRepository=coloniaRepository;
     }
 
-    public CodigoPostal showCodigoPostal(String cp){
-        return codigoPostalRepository.findById(cp).orElse(null);
+    public Set<Colonia> findColoniasById(String id){
+        return coloniaRepository.findColoniasById(id);
     }
 }

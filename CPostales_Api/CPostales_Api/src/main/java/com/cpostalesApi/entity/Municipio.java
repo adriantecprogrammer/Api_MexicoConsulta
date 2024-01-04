@@ -21,15 +21,6 @@ import java.io.Serializable;
 
 public class Municipio implements Serializable {
 
-    /*
-    @ManyToOne
-    @Id
-    @JoinColumn(name = "id_estados")
-    private Estado estados;
-
-     */
-
-
 
     @Id
     @Column(name = "id_municipios")

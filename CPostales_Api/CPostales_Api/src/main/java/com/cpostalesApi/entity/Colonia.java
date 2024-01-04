@@ -12,22 +12,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
 @Table(name = "colonias")
 @Serdeable.Serializable
 
-
 public class Colonia {
 
+    @Id
     @Column(name = "colonia")
     private String colonia;
 
-    @Id
-    @Column(name = "cp")
-    private String cp;
-
-    public String toString(){
-        return "Colonia: "+colonia+" Cp: "+cp;
-    }
-
+    @ManyToOne
+    @JoinColumn(name="cp")
+    private CodigoPostal codigoPostal;
 
 }

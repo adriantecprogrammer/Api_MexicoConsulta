@@ -6,9 +6,6 @@ import com.cpostalesApi.dto.MunicipioDTO;
 import com.cpostalesApi.entity.Estado;
 import com.cpostalesApi.entity.Municipio;
 import com.cpostalesApi.payload.MensajeResponse;
-import io.micronaut.core.annotation.NonNull;
-import io.micronaut.core.convert.value.MutableConvertibleValues;
-import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Controller;
@@ -18,7 +15,7 @@ import io.micronaut.http.annotation.Status;
 import io.micronaut.serde.annotation.Serdeable;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 @Serdeable.Serializable
 @Controller("/api/v1")
@@ -52,7 +49,7 @@ public class EstadoController {
     @Status(HttpStatus.OK)
     public HttpResponse<?> mostrarMcpios(@PathVariable Integer id){
         try {
-            List<Municipio> listMunicipios=municipioService.listAllById(id);
+            Set<Municipio> listMunicipios=municipioService.listAllById(id);
             List<MunicipioDTO> municipiosDTO = listMunicipios.stream()
                     .map(municipio -> MunicipioDTO.builder()
                             .id_estados(municipio.getEstado().getId_estado())
@@ -62,7 +59,7 @@ public class EstadoController {
                     .collect(Collectors.toList());
             if (listMunicipios==null){
 
-               mensajeResponse= MensajeResponse.builder().error(true).mensaje("No se encontraron municipios").object(null).build();
+               mensajeResponse = MensajeResponse.builder().error(true).mensaje("No se encontraron municipios").object(null).build();
                 return io.micronaut.http.HttpResponse.notFound(mensajeResponse);
 
             }else{
@@ -75,7 +72,6 @@ public class EstadoController {
                mensajeResponse=  MensajeResponse.builder().error(true).mensaje(exDt.getMessage()).object(null).build();
                return io.micronaut.http.HttpResponse.notFound(mensajeResponse);
 
-            // }
         }
     }
 
