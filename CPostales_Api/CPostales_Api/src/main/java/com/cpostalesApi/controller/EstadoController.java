@@ -32,17 +32,22 @@ public class EstadoController {
     }
 
     @Get("/estado/{id_estado}")
-    public Estado showById(@PathVariable int id_estado){
-       return estadoService.showById(id_estado);
-    }
-    @Get("/saludar")
-    public String saludar(){
-        return "feliz navidad";
-    }
+    @Status(HttpStatus.OK)
+    public HttpResponse<?> showById(@PathVariable int id_estado){
 
+        return io.micronaut.http.HttpResponse.ok( estadoService.showById(id_estado));
+
+    }
     @Get("/estados")
-    public List<Estado> showAll(){
-        return estadoService.showAll();
+    @Status(HttpStatus.OK)
+    public HttpResponse<?> showAll(){
+       List<Estado> estados= estadoService.showAll();
+
+       int tamaño = estados.size()+1;
+        mensajeResponse=MensajeResponse.builder().error(false).mensaje("Estados encontrados: "+tamaño).object(estados).build();
+
+        return io.micronaut.http.HttpResponse.ok(mensajeResponse);
+
     }
 
     @Get("/municipios/estado/{id}")
