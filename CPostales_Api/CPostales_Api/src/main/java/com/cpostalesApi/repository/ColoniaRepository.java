@@ -15,5 +15,8 @@ public interface ColoniaRepository extends JpaRepository<Colonia,String> {
     @Query("SELECT m FROM Colonia m JOIN FETCH m.codigoPostal WHERE m.codigoPostal.cp = :id")
     Set<Colonia> findColoniasById(String id);
 
+    @Query("SELECT m FROM Colonia m JOIN FETCH m.codigoPostal WHERE m.codigoPostal.municipio.id_municipios= :id AND m.codigoPostal.municipio.estado.id_estado =:id2")
+    List<Colonia> findColoniasCE(  int id, int id2);
+
 
 }
