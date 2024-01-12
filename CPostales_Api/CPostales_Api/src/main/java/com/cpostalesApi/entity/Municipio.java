@@ -23,12 +23,12 @@ public class Municipio implements Serializable {
 
 
     @Id
-    @Column(name = "id_municipios")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id_municipios;
+    @Column(name = "id_municipio")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_municipios;
 
-    @Column(name = "municipio")
-    private String municipio;
+    @Column(name = "municipios")
+    private String municipios;
 
     @ManyToOne
     @JoinColumn(name="id_estados")

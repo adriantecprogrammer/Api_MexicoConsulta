@@ -11,8 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-
-public interface MunicipioRepository extends JpaRepository<Municipio, String> {
+public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
     @Query("SELECT m FROM Municipio m JOIN FETCH m.estado WHERE m.estado.id_estado = :id")
     Set<Municipio> findEstadoById(int id);
 

@@ -22,8 +22,15 @@ public class Colonia {
     @Column(name = "colonia")
     private String colonia;
 
+
     @ManyToOne
     @JoinColumn(name="cp")
     private CodigoPostal codigoPostal;
+
+     /*
+    @Column(name = "cp")
+    private String cp;
+
+      */
 
 }

@@ -23,4 +23,8 @@ public class MunicipioService {
     public Set<Municipio> listAllById(Integer id) {
         return municipioRepository.findEstadoById(id);
     }
+
+    public List<Municipio> findM(){
+        return municipioRepository.findAll();
+    }
 }

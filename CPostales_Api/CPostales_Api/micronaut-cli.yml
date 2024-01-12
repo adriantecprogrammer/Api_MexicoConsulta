@@ -12,6 +12,15 @@ datasources:
     username: root
     password: adr1an2004
 
+    micronaut:
+      endpoints:
+        swagger:
+          enabled: true
+
+          micronaut:
+            openapi:
+              paths: /swagger
+
 jpa:
   default:
     packages-to-scan:
@@ -19,3 +28,6 @@ jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
+
+

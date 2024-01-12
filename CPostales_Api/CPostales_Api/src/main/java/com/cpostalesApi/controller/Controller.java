@@ -12,7 +12,6 @@ import com.cpostalesApi.entity.Municipio;
 import com.cpostalesApi.payload.MensajeResponse;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
-import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Status;
@@ -25,8 +24,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 @Serdeable.Serializable
-@Controller("/api/v1")
-public class EstadoController {
+@io.micronaut.http.annotation.Controller("/api/v1")
+public class Controller {
 
     EstadoService estadoService;
     MunicipioService municipioService;
@@ -34,7 +33,7 @@ public class EstadoController {
     HttpResponse<MensajeResponse> HttpResponse;
     MensajeResponse mensajeResponse;
 
-    public EstadoController (EstadoService estadoService, MunicipioService municipioService, CodigoPostalService codigoPostalService){
+    public Controller(EstadoService estadoService, MunicipioService municipioService, CodigoPostalService codigoPostalService){
         this.estadoService=estadoService;
         this.municipioService=municipioService;
         this.codigoPostalService=codigoPostalService;
@@ -176,12 +175,13 @@ public class EstadoController {
     }
 
 
+
+    @Get("/codigos")
     @Operation(summary = "Obtener todos los codigos postales del pais")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operación exitosa"),
             @ApiResponse(responseCode = "404", description = "Recurso no encontrado")
     })
-    @Get("/codigos")
     @Status(HttpStatus.OK)
     public List<CodigoPostal> findAllCP(){
         return codigoPostalService.findAllCP();

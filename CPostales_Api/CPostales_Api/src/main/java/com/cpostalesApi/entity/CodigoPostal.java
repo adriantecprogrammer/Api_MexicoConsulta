@@ -2,10 +2,7 @@ package com.cpostalesApi.entity;
 
 
 import io.micronaut.serde.annotation.Serdeable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +13,7 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "codigopostal")
+@Table(name = "codigos_postales")
 @ToString
 public class CodigoPostal {
 
@@ -24,6 +21,13 @@ public class CodigoPostal {
     @Column(name = "cp")
     public String cp;
 
-    @Column(name = "id_municipios")
-    public String id_municipios;
+    @ManyToOne
+    @JoinColumn(name="id_municipio")
+    private Municipio municipio;
+
+    /*
+    @Column(name = "id_municipio")
+    private int  id_municipio;
+
+     */
 }

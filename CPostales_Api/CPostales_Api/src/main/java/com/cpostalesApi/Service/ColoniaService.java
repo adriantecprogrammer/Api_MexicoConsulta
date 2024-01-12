@@ -19,4 +19,7 @@ public class ColoniaService {
         return coloniaRepository.findById(cp).orElse(null);
     }
 
+    public Colonia findById(String cp) {
+        return coloniaRepository.findById(cp).orElse(null);
+    }
 }

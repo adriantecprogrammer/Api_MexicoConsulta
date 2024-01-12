@@ -18,17 +18,15 @@ import java.util.Set;
 @Serdeable.Serializable
 public class Estado {
 
-    /*
-    @OneToMany(mappedBy = "estados", fetch = FetchType.EAGER)
-    private List<Municipio> municipios;
 
-     */
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_estados")
     private int id_estado;
 
     @Column(name = "estados")
     private String estado;
+
+    @Column(name = "abreviacion_Estados")
+   private String EDO1;
 }
