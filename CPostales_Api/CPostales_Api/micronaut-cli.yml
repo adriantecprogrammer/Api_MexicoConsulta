@@ -29,5 +29,9 @@ jpa:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
+        micronaut:
+          server:
+            port: 8081
+
 
 
