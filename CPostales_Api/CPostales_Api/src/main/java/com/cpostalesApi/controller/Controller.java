@@ -64,16 +64,15 @@ public class Controller {
     public HttpResponse<?> showAll(){
        List<Estado> estados= estadoService.showAll();
 
-       int tamaño = estados.size()+1;
+       int size = estados.size()+1;
        if(estados!=null){
-           mensajeResponse=MensajeResponse.builder().error(false).mensaje("Estados encontrados: "+tamaño).object(estados).build();
+           mensajeResponse=MensajeResponse.builder().error(false).mensaje("States find: "+size).object(estados).build();
 
            return io.micronaut.http.HttpResponse.ok(mensajeResponse);
        }else{
            mensajeResponse=MensajeResponse.builder().error(true).mensaje("Estados no encontrados").object(estados).build();
            return io.micronaut.http.HttpResponse.notFound(mensajeResponse);
        }
-
 
     }
 
@@ -101,7 +100,7 @@ public class Controller {
 
             }else{
                 int tamaño= municipiosDTO.size();
-                 mensajeResponse= MensajeResponse.builder().error(true).mensaje("Municipios encontrados: "+tamaño).object(municipiosDTO).build();
+                 mensajeResponse= MensajeResponse.builder().error(false).mensaje("Municipios encontrados: "+tamaño).object(municipiosDTO).build();
                  return io.micronaut.http.HttpResponse.ok(mensajeResponse);
 
             }
@@ -140,7 +139,7 @@ public class Controller {
 
             }
         }catch (Exception exDt){
-            mensajeResponse=  MensajeResponse.builder().error(true).mensaje(exDt.getMessage()).object(null).build();
+            mensajeResponse=  MensajeResponse.builder().error(false).mensaje(exDt.getMessage()).object(null).build();
             return io.micronaut.http.HttpResponse.notFound(mensajeResponse);
 
         }
@@ -168,7 +167,7 @@ public class Controller {
 
         }else{
             int tamaño= coloniaDTO.size();
-            mensajeResponse= MensajeResponse.builder().error(true).mensaje("Colonias encontrados: "+tamaño).object(coloniaDTO).build();
+            mensajeResponse= MensajeResponse.builder().error(false).mensaje("Colonias encontrados: "+tamaño).object(coloniaDTO).build();
             return io.micronaut.http.HttpResponse.ok(mensajeResponse);
 
         }
